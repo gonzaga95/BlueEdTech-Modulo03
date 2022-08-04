@@ -2,7 +2,7 @@ const crypto = require('crypto');
 
 class AnimeEntity {
     constructor(anime) {
-        this.id = crypto.randomUUID();
+        this.id = anime.id ?? crypto.randomUUID();
         this.title = anime.title;
         this.gender = anime.gender;
         this.protagonist = anime.protagonist;
