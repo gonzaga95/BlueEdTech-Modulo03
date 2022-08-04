@@ -32,3 +32,5 @@ class AnimeEntity {
         };
     }
 }
+
+module.exports = AnimeEntity();
