@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 class AnimeEntity {
     constructor(anime) {
         this.id = crypto.randomUUID();
@@ -33,4 +35,4 @@ class AnimeEntity {
     }
 }
 
-module.exports = AnimeEntity();
+module.exports = AnimeEntity;
