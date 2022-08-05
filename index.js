@@ -1,23 +1,41 @@
-const express = require("express");
+const express = require('express');
+const cors = require('cors');
+
 const app = express();
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+app.use(cors());
+
+let animes = require('./mocks/animes');
+
+const Char = require('./entities/character.entity');
+
+app.get('/', function (req, res) {
+    const char1 = new Char({
+        name: 'dudu',
+        lastName: 'testson',
+        skill: 'programar',
+        age: '30',
+        gender: 'male',
+    });
+    char1.validate();
+    console.log(char1.getCharacter());
+
+    res.send(animes);
 });
 
-app.get("/raiz/:numer", function (req, res) {
-    let number = req.params.number;
+app.get('/anime/:id', function (req, res) {
+    const animeId = req.params.id;
+    let animeFinded;
 
-    const result = number ** 0.5;
-    if (result % 1 === 0) {
-        res.send({
-            message: "A raiz quadrada do número " + number,
-            result: `${result}`,
-        });
+    animes.map((anime) => {
+        if (anime.id === animeId) {
+            animeFinded = anime;
+        }
+    });
+    if (animeFinded) {
+        res.send(animeFinded);
     } else {
-        res.send({
-            message: `O número ${number} não possui raiz exata`,
-        });
+        res.send('Nenhum anime com esse ID foi encontrado');
     }
 });
 
