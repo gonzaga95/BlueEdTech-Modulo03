@@ -18,7 +18,6 @@ app.get('/', function (req, res) {
         gender: 'male',
     });
     char1.validate();
-    console.log(char1.getCharacter());
 
     res.send(animes);
 });
