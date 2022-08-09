@@ -11,9 +11,9 @@ connectMongoDb();
 
 app.get('/', controller.findAllAnimes);
 app.get('/anime/:id', controller.findAnimeById);
-app.get('/anime', controller.createAnime);
-app.get('/anime', controller.updateAnime);
-app.get('/anime/:id', controller.deleteAnime);
+app.post('/anime/create', controller.createAnime);
+app.put('/anime/update/:id', controller.updateAnime);
+app.delete('/anime/delete/:id', controller.deleteAnime);
 
 app.listen(3000, () => {
     console.log(`A aplicação está rodando na porta 3000`);
