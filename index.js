@@ -3,10 +3,9 @@ const cors = require('cors');
 const connectMongoDb = require('./database/mongoDb/mongo');
 
 const app = express();
+app.use(cors());
 
 const controller = require('./controllers/animes.controller');
-
-app.use(cors());
 
 connectMongoDb();
 
