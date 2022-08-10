@@ -65,9 +65,23 @@ function updateAnime(anime) {
     return updatedAnime;
 }
 
+function deleteAnime(id) {
+  let animeFinded;
+  animes.map((anime, index) => {
+    if (anime.id === id) {
+      animeFinded = anime;
+      animes.splice(index, 1);
+    }
+  });
+
+  return animeFinded;
+}
+
+
 module.exports = {
     findAllAnimes,
     findAnimeById,
     createAnime,
     updateAnime,
+    deleteAnime,
 };
