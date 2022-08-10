@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/anime', animeRoutes);
 
-connectMongoDb();
+// connectMongoDb();
 
 app.listen(3000, () => {
     console.log(`A aplicação está rodando na porta 3000`);
