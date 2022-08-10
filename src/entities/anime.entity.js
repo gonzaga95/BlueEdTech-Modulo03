@@ -9,7 +9,7 @@ class AnimeEntity {
         this.year = anime.year;
     }
 
-    validadete() {
+    validate() {
         if (!this.title) {
             throw new Error('O título precisa ser informado');
         }
